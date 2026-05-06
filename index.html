@@ -7,7 +7,7 @@
   <meta name="description" content="Portfolio de Zakia YAHIA CHERIF, Data Analyst Junior spécialisée en Python, SQL, Power BI"/>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet"/>
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
   <!-- Typed.js -->
@@ -30,10 +30,10 @@
       --accent2:  #e8637a;
       --warm:     #c9845a;
       --gold:     #d4a94a;
-      --text:     #f0e6e8;
-      --muted:    #7a5a60;
+      --text:     #ffffff;
+      --muted:    #c4a8ad;
       --mono:     'Space Mono', monospace;
-      --display:  'Syne', sans-serif;
+      --display:  'Poppins', sans-serif;
     }
 
     body { background:var(--bg); color:var(--text); font-family:var(--display); overflow-x:hidden; }
@@ -57,7 +57,7 @@
     #sidebar { position:fixed; top:0; left:0; bottom:0; z-index:100; width:260px; background:rgba(11,6,8,.96); backdrop-filter:blur(18px); border-right:1px solid var(--border); display:flex; flex-direction:column; align-items:center; padding:40px 0 30px; transition:transform .35s ease; }
     .sidebar-photo { width:92px; height:92px; border-radius:50%; border:2px solid var(--accent); overflow:hidden; background:var(--card); display:flex; align-items:center; justify-content:center; font-size:2.4rem; margin-bottom:14px; flex-shrink:0; }
     .sidebar-photo img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
-    .sidebar-name { font-size:.9rem; font-weight:800; text-align:center; padding:0 16px; line-height:1.3; margin-bottom:6px; }
+    .sidebar-name { font-size:1rem; font-weight:800; text-align:center; padding:0 16px; line-height:1.3; margin-bottom:6px; color:#ffffff; }
     .sidebar-role { font-family:var(--mono); font-size:.63rem; color:var(--accent2); letter-spacing:.14em; margin-bottom:20px; }
     .sidebar-social { display:flex; gap:10px; margin-bottom:28px; }
     .sidebar-social a { width:32px; height:32px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.85rem; text-decoration:none; transition:all .2s; }
@@ -78,7 +78,7 @@
     .section-inner { max-width:1000px; margin:0 auto; }
     .section-label { font-family:var(--mono); font-size:.68rem; color:var(--accent2); letter-spacing:.28em; text-transform:uppercase; margin-bottom:10px; }
     .section-title { font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:800; line-height:1.1; margin-bottom:12px; }
-    .section-sub { font-family:var(--mono); font-size:.78rem; color:var(--muted); line-height:1.8; max-width:680px; margin-bottom:48px; }
+    .section-sub { font-family:var(--mono); font-size:.82rem; color:#ddd0d2; line-height:1.9; max-width:680px; margin-bottom:48px; }
     .divider { border:none; height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); margin:0; }
 
     /* ── BUTTONS ── */
@@ -96,7 +96,7 @@
     .hero-name span { color:var(--accent2); }
     .hero-typed { font-size:clamp(1rem,2vw,1.35rem); color:var(--muted); margin:18px 0 28px; font-weight:400; opacity:0; animation:fadeUp .7s .6s forwards; }
     .typed-txt { color:var(--warm); font-weight:700; }
-    .hero-desc { font-family:var(--mono); font-size:.78rem; line-height:1.85; color:var(--muted); max-width:440px; opacity:0; animation:fadeUp .7s .75s forwards; }
+    .hero-desc { font-family:var(--mono); font-size:.85rem; line-height:1.9; color:#ddd0d2; max-width:440px; opacity:0; animation:fadeUp .7s .75s forwards; }
     .hero-ctas { display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; opacity:0; animation:fadeUp .7s .9s forwards; }
 
     .hero-card { background:var(--card); border:1px solid var(--border); border-radius:6px; overflow:hidden; opacity:0; animation:fadeIn 1s 1s forwards; font-family:var(--mono); font-size:.75rem; }
@@ -122,7 +122,7 @@
     .about-img { width:100%; aspect-ratio:3/4; border-radius:4px; overflow:hidden; background:var(--card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:5rem; }
     .about-img img { width:100%; height:100%; object-fit:cover; }
     .about-badge { position:absolute; bottom:-14px; right:-14px; background:var(--accent); color:#fff; padding:10px 16px; border-radius:2px; font-family:var(--mono); font-size:.7rem; font-weight:700; letter-spacing:.06em; }
-    .about-p { font-family:var(--mono); font-size:.78rem; line-height:1.9; color:var(--muted); margin-bottom:16px; }
+    .about-p { font-family:var(--mono); font-size:.85rem; line-height:2; color:#ddd0d2; margin-bottom:18px; }
     .about-infos { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:28px 0; }
     .ainfo { font-family:var(--mono); font-size:.73rem; }
     .ainfo strong { color:var(--accent2); } .ainfo span { color:var(--muted); }
@@ -134,15 +134,15 @@
     .stat-card:hover { border-color:var(--accent2); transform:translateY(-3px); }
     .stat-icon { width:56px; height:56px; border-radius:50%; background:rgba(181,39,62,.12); border:1px solid rgba(181,39,62,.3); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:1.5rem; color:var(--accent2); }
     .stat-num { font-size:1.7rem; font-weight:800; color:var(--text); display:block; margin-bottom:6px; }
-    .stat-label strong { font-size:.78rem; display:block; margin-bottom:3px; }
-    .stat-label span { font-family:var(--mono); font-size:.63rem; color:var(--muted); }
+    .stat-label strong { font-size:.8rem; display:block; margin-bottom:3px; color:#ffffff; }
+    .stat-label span { font-family:var(--mono); font-size:.65rem; color:#c4a8ad; }
 
     /* ── SKILLS ── */
     #skills { background:var(--surface); }
     .skills-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
     .skill-row { margin-bottom:22px; }
     .skill-header { display:flex; justify-content:space-between; margin-bottom:8px; }
-    .skill-name-txt { font-family:var(--mono); font-size:.74rem; color:var(--text); }
+    .skill-name-txt { font-family:var(--mono); font-size:.76rem; color:#ffffff; }
     .skill-pct { font-family:var(--mono); font-size:.72rem; color:var(--accent2); font-weight:700; }
     .skill-track { background:var(--border); border-radius:2px; height:4px; overflow:hidden; }
     .skill-bar { height:100%; border-radius:2px; background:linear-gradient(90deg,var(--accent),var(--accent2)); width:0; transition:width 1.3s cubic-bezier(.4,0,.2,1); }
@@ -159,8 +159,8 @@
     .tl-item::before { content:''; position:absolute; left:-30px; top:6px; width:11px; height:11px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(181,39,62,.18); }
     .tl-date { font-family:var(--mono); font-size:.65rem; color:var(--accent2); letter-spacing:.1em; margin-bottom:4px; }
     .tl-title { font-size:.93rem; font-weight:700; margin-bottom:2px; }
-    .tl-place { font-family:var(--mono); font-size:.7rem; color:var(--muted); margin-bottom:8px; }
-    .tl-desc { font-family:var(--mono); font-size:.71rem; line-height:1.8; color:var(--muted); }
+    .tl-place { font-family:var(--mono); font-size:.73rem; color:#c4a8ad; margin-bottom:8px; }
+    .tl-desc { font-family:var(--mono); font-size:.76rem; line-height:1.85; color:#ddd0d2; }
     .tl-desc ul { list-style:none; padding:0; }
     .tl-desc ul li { margin-bottom:3px; }
     .tl-desc ul li::before { content:'▸ '; color:var(--accent2); }
@@ -182,7 +182,7 @@
     .pf-tag.w { border-color:rgba(201,132,90,.28); background:rgba(201,132,90,.08); color:var(--warm); }
     .pf-tag.g { border-color:rgba(212,169,74,.28); background:rgba(212,169,74,.08); color:var(--gold); }
     .pf-name { font-size:.93rem; font-weight:700; margin-bottom:8px; }
-    .pf-desc { font-family:var(--mono); font-size:.7rem; line-height:1.75; color:var(--muted); flex:1; }
+    .pf-desc { font-family:var(--mono); font-size:.74rem; line-height:1.8; color:#ddd0d2; flex:1; }
     .pf-links { display:flex; gap:12px; margin-top:14px; }
     .pf-link { font-family:var(--mono); font-size:.68rem; color:var(--accent2); text-decoration:none; display:flex; align-items:center; gap:5px; transition:color .2s; }
     .pf-link:hover { color:var(--warm); }
@@ -194,7 +194,7 @@
     .srv-card:hover { border-color:var(--accent2); transform:translateY(-4px); }
     .srv-icon { font-size:1.5rem; color:var(--accent2); flex-shrink:0; margin-top:2px; }
     .srv-title { font-size:.88rem; font-weight:700; margin-bottom:7px; }
-    .srv-desc { font-family:var(--mono); font-size:.7rem; line-height:1.8; color:var(--muted); }
+    .srv-desc { font-family:var(--mono); font-size:.74rem; line-height:1.85; color:#ddd0d2; }
 
     /* ── CONTACT ── */
     #contact { background:var(--surface); }
@@ -340,7 +340,7 @@
       <div class="about-grid">
         <div class="about-img-wrap reveal">
           <div class="about-img">
-            <img src="assets/img/my-profile-img.jpg.png" alt="Zakia"/> <!-- <img src="assets/img/my-profile-img.jpg" alt="Zakia"/> -->
+            <img src="assets/img/my-profile-img.jpg.png" alt="Zakia"/><!-- <img src="assets/img/my-profile-img.jpg" alt="Zakia"/> -->
           </div>
           <div class="about-badge">Disponible</div>
         </div>
