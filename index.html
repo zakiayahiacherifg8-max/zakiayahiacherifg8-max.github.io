@@ -1,664 +1,627 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Zakia YAHIA CHERIF - Data Analyst</title>
-  <meta content="Portfolio de Zakia YAHIA CHERIF, Data Analyst Junior spécialisée en Python, SQL, Power BI" name="description">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zakia YAHIA CHERIF – Data Analyst Junior</title>
+  <meta name="description" content="Portfolio de Zakia YAHIA CHERIF, Data Analyst Junior spécialisée en Python, SQL, Power BI"/>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <!-- Isotope -->
+  <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+    /* ── PALETTE BORDEAUX MODERNE ── */
+    :root {
+      --bg:       #0b0608;
+      --surface:  #110a0c;
+      --card:     #160c0f;
+      --border:   #2e181d;
+      --accent:   #b5273e;
+      --accent2:  #e8637a;
+      --warm:     #c9845a;
+      --gold:     #d4a94a;
+      --text:     #f0e6e8;
+      --muted:    #7a5a60;
+      --mono:     'Space Mono', monospace;
+      --display:  'Syne', sans-serif;
+    }
+
+    body { background:var(--bg); color:var(--text); font-family:var(--display); overflow-x:hidden; }
+
+    body::before {
+      content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity:.5;
+    }
+
+    /* ── LOADER ── */
+    #loader { position:fixed; inset:0; z-index:2000; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .7s, visibility .7s; }
+    #loader.hidden { opacity:0; visibility:hidden; }
+    .loader-text { font-family:var(--mono); font-size:.8rem; color:var(--accent2); letter-spacing:.3em; margin-bottom:20px; }
+    .loader-track { width:240px; height:2px; background:var(--border); border-radius:2px; overflow:hidden; }
+    .loader-fill  { height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2),var(--warm)); animation:load 1.8s cubic-bezier(.4,0,.2,1) forwards; }
+    .loader-sub   { font-family:var(--mono); font-size:.65rem; color:var(--muted); margin-top:12px; letter-spacing:.15em; }
+    @keyframes load { from{width:0} to{width:100%} }
+
+    /* ── SIDEBAR ── */
+    #sidebar { position:fixed; top:0; left:0; bottom:0; z-index:100; width:260px; background:rgba(11,6,8,.96); backdrop-filter:blur(18px); border-right:1px solid var(--border); display:flex; flex-direction:column; align-items:center; padding:40px 0 30px; transition:transform .35s ease; }
+    .sidebar-photo { width:92px; height:92px; border-radius:50%; border:2px solid var(--accent); overflow:hidden; background:var(--card); display:flex; align-items:center; justify-content:center; font-size:2.4rem; margin-bottom:14px; flex-shrink:0; }
+    .sidebar-photo img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+    .sidebar-name { font-size:.9rem; font-weight:800; text-align:center; padding:0 16px; line-height:1.3; margin-bottom:6px; }
+    .sidebar-role { font-family:var(--mono); font-size:.63rem; color:var(--accent2); letter-spacing:.14em; margin-bottom:20px; }
+    .sidebar-social { display:flex; gap:10px; margin-bottom:28px; }
+    .sidebar-social a { width:32px; height:32px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.85rem; text-decoration:none; transition:all .2s; }
+    .sidebar-social a:hover { border-color:var(--accent2); color:var(--accent2); transform:scale(1.1); }
+    .sidebar-divider { width:60%; height:1px; background:var(--border); margin-bottom:22px; }
+    nav ul { list-style:none; width:100%; }
+    nav ul li a { display:flex; align-items:center; gap:12px; padding:11px 28px; font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; color:var(--muted); text-decoration:none; transition:all .2s; border-left:2px solid transparent; }
+    nav ul li a:hover, nav ul li a.active { color:var(--accent2); border-left-color:var(--accent2); background:rgba(232,99,122,.06); }
+    nav ul li a i { font-size:1rem; }
+
+    #menu-toggle { display:none; position:fixed; top:16px; left:16px; z-index:200; background:var(--card); border:1px solid var(--border); border-radius:4px; width:40px; height:40px; align-items:center; justify-content:center; cursor:pointer; color:var(--accent2); font-size:1.3rem; }
+
+    /* ── MAIN ── */
+    #main { margin-left:260px; }
+
+    /* ── SHARED ── */
+    section { padding:90px 6%; position:relative; }
+    .section-inner { max-width:1000px; margin:0 auto; }
+    .section-label { font-family:var(--mono); font-size:.68rem; color:var(--accent2); letter-spacing:.28em; text-transform:uppercase; margin-bottom:10px; }
+    .section-title { font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:800; line-height:1.1; margin-bottom:12px; }
+    .section-sub { font-family:var(--mono); font-size:.78rem; color:var(--muted); line-height:1.8; max-width:680px; margin-bottom:48px; }
+    .divider { border:none; height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); margin:0; }
+
+    /* ── BUTTONS ── */
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:12px 26px; border-radius:2px; font-family:var(--mono); font-size:.74rem; letter-spacing:.12em; text-decoration:none; transition:all .25s; border:none; cursor:pointer; }
+    .btn-primary { background:var(--accent); color:#fff; }
+    .btn-primary:hover { background:var(--accent2); transform:translateY(-2px); }
+    .btn-ghost { background:transparent; color:var(--accent2); border:1px solid var(--accent2); }
+    .btn-ghost:hover { background:var(--accent2); color:#fff; transform:translateY(-2px); }
+
+    /* ── HERO ── */
+    #hero { min-height:100vh; display:flex; align-items:center; background:var(--bg); padding-top:80px; }
+    .hero-inner { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .hero-tag  { font-family:var(--mono); font-size:.7rem; color:var(--accent2); letter-spacing:.22em; margin-bottom:18px; opacity:0; animation:fadeUp .6s .3s forwards; }
+    .hero-name { font-size:clamp(2.4rem,4.5vw,4rem); font-weight:800; line-height:1.05; opacity:0; animation:fadeUp .7s .45s forwards; }
+    .hero-name span { color:var(--accent2); }
+    .hero-typed { font-size:clamp(1rem,2vw,1.35rem); color:var(--muted); margin:18px 0 28px; font-weight:400; opacity:0; animation:fadeUp .7s .6s forwards; }
+    .typed-txt { color:var(--warm); font-weight:700; }
+    .hero-desc { font-family:var(--mono); font-size:.78rem; line-height:1.85; color:var(--muted); max-width:440px; opacity:0; animation:fadeUp .7s .75s forwards; }
+    .hero-ctas { display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; opacity:0; animation:fadeUp .7s .9s forwards; }
+
+    .hero-card { background:var(--card); border:1px solid var(--border); border-radius:6px; overflow:hidden; opacity:0; animation:fadeIn 1s 1s forwards; font-family:var(--mono); font-size:.75rem; }
+    .hc-bar { background:#1c0c0f; padding:10px 14px; display:flex; align-items:center; gap:7px; border-bottom:1px solid var(--border); }
+    .hc-dot { width:10px; height:10px; border-radius:50%; }
+    .hc-bar span { color:var(--muted); font-size:.67rem; margin-left:8px; letter-spacing:.08em; }
+    .hc-body { padding:22px; }
+    .cl { margin:5px 0; }
+    .ck { color:var(--warm); } .cv { color:var(--accent2); } .cs { color:var(--gold); } .cc { color:var(--muted); }
+    .tags-wrap { display:flex; flex-wrap:wrap; gap:7px; margin-top:20px; }
+    .tag { padding:4px 10px; border-radius:2px; font-size:.64rem; letter-spacing:.07em; border:1px solid; }
+    .tag-a { background:rgba(181,39,62,.12); color:var(--accent2); border-color:rgba(181,39,62,.3); }
+    .tag-w { background:rgba(201,132,90,.10); color:var(--warm); border-color:rgba(201,132,90,.3); }
+    .tag-g { background:rgba(212,169,74,.10); color:var(--gold); border-color:rgba(212,169,74,.3); }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+    /* ── ABOUT ── */
+    #about { background:var(--surface); }
+    .about-grid { display:grid; grid-template-columns:290px 1fr; gap:60px; align-items:start; }
+    .about-img-wrap { position:relative; }
+    .about-img { width:100%; aspect-ratio:3/4; border-radius:4px; overflow:hidden; background:var(--card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:5rem; }
+    .about-img img { width:100%; height:100%; object-fit:cover; }
+    .about-badge { position:absolute; bottom:-14px; right:-14px; background:var(--accent); color:#fff; padding:10px 16px; border-radius:2px; font-family:var(--mono); font-size:.7rem; font-weight:700; letter-spacing:.06em; }
+    .about-p { font-family:var(--mono); font-size:.78rem; line-height:1.9; color:var(--muted); margin-bottom:16px; }
+    .about-infos { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:28px 0; }
+    .ainfo { font-family:var(--mono); font-size:.73rem; }
+    .ainfo strong { color:var(--accent2); } .ainfo span { color:var(--muted); }
+
+    /* ── STATS ── */
+    #stats { background:var(--bg); padding:60px 6%; }
+    .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; max-width:1000px; margin:0 auto; }
+    .stat-card { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:28px 20px; text-align:center; transition:border-color .25s, transform .25s; }
+    .stat-card:hover { border-color:var(--accent2); transform:translateY(-3px); }
+    .stat-icon { width:56px; height:56px; border-radius:50%; background:rgba(181,39,62,.12); border:1px solid rgba(181,39,62,.3); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:1.5rem; color:var(--accent2); }
+    .stat-num { font-size:1.7rem; font-weight:800; color:var(--text); display:block; margin-bottom:6px; }
+    .stat-label strong { font-size:.78rem; display:block; margin-bottom:3px; }
+    .stat-label span { font-family:var(--mono); font-size:.63rem; color:var(--muted); }
+
+    /* ── SKILLS ── */
+    #skills { background:var(--surface); }
+    .skills-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+    .skill-row { margin-bottom:22px; }
+    .skill-header { display:flex; justify-content:space-between; margin-bottom:8px; }
+    .skill-name-txt { font-family:var(--mono); font-size:.74rem; color:var(--text); }
+    .skill-pct { font-family:var(--mono); font-size:.72rem; color:var(--accent2); font-weight:700; }
+    .skill-track { background:var(--border); border-radius:2px; height:4px; overflow:hidden; }
+    .skill-bar { height:100%; border-radius:2px; background:linear-gradient(90deg,var(--accent),var(--accent2)); width:0; transition:width 1.3s cubic-bezier(.4,0,.2,1); }
+    .skill-bar.warm { background:linear-gradient(90deg,var(--accent2),var(--warm)); }
+    .skill-bar.gold { background:linear-gradient(90deg,var(--warm),var(--gold)); }
+
+    /* ── RESUME ── */
+    #resume { background:var(--bg); }
+    .resume-cols { display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+    .resume-col-title { font-size:1rem; font-weight:700; color:var(--accent2); font-family:var(--mono); letter-spacing:.08em; margin-bottom:30px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+    .tl { position:relative; padding-left:24px; }
+    .tl::before { content:''; position:absolute; left:0; top:8px; bottom:0; width:1px; background:var(--border); }
+    .tl-item { position:relative; margin-bottom:36px; }
+    .tl-item::before { content:''; position:absolute; left:-30px; top:6px; width:11px; height:11px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(181,39,62,.18); }
+    .tl-date { font-family:var(--mono); font-size:.65rem; color:var(--accent2); letter-spacing:.1em; margin-bottom:4px; }
+    .tl-title { font-size:.93rem; font-weight:700; margin-bottom:2px; }
+    .tl-place { font-family:var(--mono); font-size:.7rem; color:var(--muted); margin-bottom:8px; }
+    .tl-desc { font-family:var(--mono); font-size:.71rem; line-height:1.8; color:var(--muted); }
+    .tl-desc ul { list-style:none; padding:0; }
+    .tl-desc ul li { margin-bottom:3px; }
+    .tl-desc ul li::before { content:'▸ '; color:var(--accent2); }
+
+    /* ── PORTFOLIO ── */
+    #portfolio { background:var(--surface); }
+    .pf-filters { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px; }
+    .pf-filter { font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; padding:7px 16px; border-radius:2px; cursor:pointer; background:var(--card); border:1px solid var(--border); color:var(--muted); transition:all .2s; }
+    .pf-filter.active, .pf-filter:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .pf-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .pf-item { border-radius:4px; }
+    .pf-card { background:var(--card); border:1px solid var(--border); border-radius:4px; overflow:hidden; transition:transform .25s, border-color .25s; display:flex; flex-direction:column; height:100%; }
+    .pf-card:hover { transform:translateY(-5px); border-color:var(--accent2); }
+    .pf-thumb { height:150px; background:var(--bg); display:flex; align-items:center; justify-content:center; font-size:3rem; position:relative; overflow:hidden; }
+    .pf-thumb::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(181,39,62,.1),rgba(201,132,90,.07)); }
+    .pf-body { padding:20px; flex:1; display:flex; flex-direction:column; }
+    .pf-meta { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+    .pf-tag { font-family:var(--mono); font-size:.62rem; padding:3px 8px; border-radius:2px; border:1px solid rgba(181,39,62,.28); background:rgba(181,39,62,.08); color:var(--accent2); }
+    .pf-tag.w { border-color:rgba(201,132,90,.28); background:rgba(201,132,90,.08); color:var(--warm); }
+    .pf-tag.g { border-color:rgba(212,169,74,.28); background:rgba(212,169,74,.08); color:var(--gold); }
+    .pf-name { font-size:.93rem; font-weight:700; margin-bottom:8px; }
+    .pf-desc { font-family:var(--mono); font-size:.7rem; line-height:1.75; color:var(--muted); flex:1; }
+    .pf-links { display:flex; gap:12px; margin-top:14px; }
+    .pf-link { font-family:var(--mono); font-size:.68rem; color:var(--accent2); text-decoration:none; display:flex; align-items:center; gap:5px; transition:color .2s; }
+    .pf-link:hover { color:var(--warm); }
+
+    /* ── SERVICES ── */
+    #services { background:var(--bg); }
+    .srv-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .srv-card { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:26px; display:flex; gap:18px; align-items:flex-start; transition:border-color .25s, transform .25s; }
+    .srv-card:hover { border-color:var(--accent2); transform:translateY(-4px); }
+    .srv-icon { font-size:1.5rem; color:var(--accent2); flex-shrink:0; margin-top:2px; }
+    .srv-title { font-size:.88rem; font-weight:700; margin-bottom:7px; }
+    .srv-desc { font-family:var(--mono); font-size:.7rem; line-height:1.8; color:var(--muted); }
+
+    /* ── CONTACT ── */
+    #contact { background:var(--surface); }
+    .contact-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:50px; align-items:start; }
+    .cinfo-item { display:flex; gap:16px; align-items:flex-start; margin-bottom:22px; }
+    .cinfo-icon { width:40px; height:40px; border-radius:4px; border:1px solid var(--border); background:var(--card); display:flex; align-items:center; justify-content:center; color:var(--accent2); font-size:1.1rem; flex-shrink:0; }
+    .cinfo-label { font-family:var(--mono); font-size:.67rem; color:var(--muted); letter-spacing:.1em; margin-bottom:3px; }
+    .cinfo-val { font-family:var(--mono); font-size:.76rem; color:var(--text); word-break:break-all; }
+    .cinfo-val a { color:var(--accent2); text-decoration:none; }
+    .cinfo-val a:hover { color:var(--warm); }
+    .form-group { margin-bottom:16px; }
+    .form-group label { font-family:var(--mono); font-size:.67rem; color:var(--muted); letter-spacing:.1em; display:block; margin-bottom:7px; }
+    .form-control { width:100%; background:var(--card); border:1px solid var(--border); border-radius:2px; padding:11px 14px; color:var(--text); font-family:var(--mono); font-size:.77rem; outline:none; transition:border-color .2s; }
+    .form-control:focus { border-color:var(--accent2); }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    textarea.form-control { resize:vertical; min-height:130px; }
+
+    /* ── FOOTER ── */
+    footer { text-align:center; padding:28px 6%; font-family:var(--mono); font-size:.68rem; color:var(--muted); border-top:1px solid var(--border); background:var(--bg); }
+    footer strong { color:var(--accent2); }
+
+    /* ── SCROLL TOP ── */
+    #scroll-top { position:fixed; bottom:24px; right:24px; z-index:50; width:40px; height:40px; border-radius:4px; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.2rem; text-decoration:none; opacity:0; pointer-events:none; transition:opacity .3s; }
+    #scroll-top.show { opacity:1; pointer-events:all; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity:0; transform:translateY(26px); transition:opacity .6s, transform .6s; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:1024px) {
+      #sidebar { transform:translateX(-100%); }
+      #sidebar.open { transform:none; }
+      #main { margin-left:0; }
+      #menu-toggle { display:flex; }
+      .pf-grid { grid-template-columns:repeat(2,1fr); }
+      .srv-grid { grid-template-columns:repeat(2,1fr); }
+      .stats-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:768px) {
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-card { display:none; }
+      .about-grid { grid-template-columns:1fr; }
+      .resume-cols { grid-template-columns:1fr; }
+      .skills-grid { grid-template-columns:1fr; }
+      .pf-grid { grid-template-columns:1fr; }
+      .srv-grid { grid-template-columns:1fr; }
+      .contact-grid { grid-template-columns:1fr; }
+      .form-row { grid-template-columns:1fr; }
+      .stats-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="index-page">
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-text">CHARGEMENT</div>
+  <div class="loader-track"><div class="loader-fill"></div></div>
+  <div class="loader-sub">PORTFOLIO • DATA ANALYST JUNIOR</div>
+</div>
 
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+<!-- HAMBURGER -->
+<div id="menu-toggle"><i class="bi bi-list"></i></div>
 
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
-    </div>
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div class="sidebar-photo">
+    👤
+    <!-- Remplace 👤 par : <img src="assets/img/my-profile-img.jpg" alt="Zakia"/> -->
+  </div>
+  <div class="sidebar-name">Zakia YAHIA CHERIF</div>
+  <div class="sidebar-role">DATA ANALYST JUNIOR</div>
+  <div class="sidebar-social">
+    <a href="https://www.linkedin.com/in/zakia-yahia-cherif" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/zakiayahiacherifg8-max" target="_blank"><i class="bi bi-github"></i></a>
+    <a href="mailto:zakou-06@hotmail.fr"><i class="bi bi-envelope"></i></a>
+  </div>
+  <div class="sidebar-divider"></div>
+  <nav>
+    <ul>
+      <li><a href="#hero" class="active"><i class="bi bi-house"></i> Accueil</a></li>
+      <li><a href="#about"><i class="bi bi-person"></i> À propos</a></li>
+      <li><a href="#skills"><i class="bi bi-bar-chart"></i> Compétences</a></li>
+      <li><a href="#resume"><i class="bi bi-file-earmark-text"></i> Parcours</a></li>
+      <li><a href="#portfolio"><i class="bi bi-grid"></i> Portfolio</a></li>
+      <li><a href="#services"><i class="bi bi-hdd-stack"></i> Services</a></li>
+      <li><a href="#contact"><i class="bi bi-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
+</aside>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <h1 class="sitename">Zakia YAHIA CHERIF</h1>
-    </a>
+<div id="main">
 
-    <div class="social-links text-center">
-      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-      <a href="https://www.linkedin.com/in/zakia-yahia-cherif" class="linkedin"><i class="bi bi-linkedin"></i></a>
-    </div>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#projets"><i class="bi bi-images navicon"></i> Projets</a></li>
-        <li><a href="#compétences"><i class="bi bi-hdd-stack navicon"></i> Compétences</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
-
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Zakia YAHIA CHERIF</h2>
-        <p>I'm <span class="typed" data-typed-items="Data Analyst,Data Scientist,Data Engineer">Data Analyst</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">// Data Analyst Portfolio</div>
+        <h1 class="hero-name">Zakia<br><span>YAHIA CHERIF</span></h1>
+        <p class="hero-typed">Je suis <span class="typed-txt" id="typed-el"></span></p>
+        <p class="hero-desc">Passionnée par la donnée, je combine vision business et compétences techniques pour transformer les données brutes en leviers de performance.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#portfolio">Voir mes projets</a>
+          <a class="btn btn-ghost" href="#contact">Me contacter</a>
+        </div>
       </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>Je suis Data Analyste junior passionnée par l'analyse de données. je dispose d'un solide background en supply chain, analyse et web-marketing. Je combine vision business et compétences techniques pour transformer la donnée en levier de performance.</p>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 content">
-            <h2>Data Analytics &amp; Machine Learning</h2>
-            <p class="fst-italic py-3">
-              Me contacter pour toute collaboration ou opportunité professionnelle.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>GitHub:</strong> <span>github.com/zakiayahiacherifg8-max</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>Lille, France</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Diplôme:</strong> <span>Master</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>zakou-06@hotmail.fr</span></li>
-                </ul>
-              </div>
-            </div>
-            <p class="py-3">
-              J'ai réalisé plusieurs projets data (Netflix, Spotify, Tinder, Secteur bancaire…) couvrant l'ensemble du cycle de vie de la donnée : exploration (EDA), modélisation en machine learning, création de dashboards interactifs et déploiement d'applications via Streamlit et Hugging Face.
-              Ma stack technique inclut Python (Pandas, Numpy, Scikit-learn, Seaborn…), SQL, AWS ainsi que des outils de data visualisation comme Tableau, Power BI, Metabase, me permettant de transformer les données en leviers de performance et d'optimisation des coûts.
-            </p>
+      <div class="hero-card">
+        <div class="hc-bar">
+          <div class="hc-dot" style="background:#b5273e"></div>
+          <div class="hc-dot" style="background:#d4a94a"></div>
+          <div class="hc-dot" style="background:#c9845a"></div>
+          <span>analyst_profile.py</span>
+        </div>
+        <div class="hc-body">
+          <div class="cl"><span class="ck">import</span> <span class="cv">pandas</span> <span class="ck">as</span> <span class="cv">pd</span></div>
+          <div class="cl"><span class="ck">from</span> sklearn <span class="ck">import</span> <span class="cv">ensemble</span></div>
+          <div class="cl" style="margin-top:10px"><span class="cc"># Profil analyste</span></div>
+          <div class="cl"><span class="cv">analyst</span> = {</div>
+          <div class="cl" style="padding-left:14px"><span class="cs">"nom"</span>: <span class="cs">"Zakia YAHIA CHERIF"</span>,</div>
+          <div class="cl" style="padding-left:14px"><span class="cs">"ville"</span>: <span class="cs">"Lille, France"</span>,</div>
+          <div class="cl" style="padding-left:14px"><span class="cs">"exp"</span>: <span class="cv">6</span>, <span class="cc"># années</span></div>
+          <div class="cl" style="padding-left:14px"><span class="cs">"dispo"</span>: <span class="cv">True</span></div>
+          <div class="cl">}</div>
+          <div class="cl" style="margin-top:10px"><span class="cc"># Stack technique</span></div>
+          <div class="cl"><span class="cv">pipeline</span> = [<span class="cs">"EDA"</span>, <span class="cs">"ML"</span>, <span class="cs">"Deploy"</span>]</div>
+          <div class="tags-wrap">
+            <span class="tag tag-a">Python</span><span class="tag tag-a">SQL</span>
+            <span class="tag tag-w">Power BI</span><span class="tag tag-w">Tableau</span>
+            <span class="tag tag-g">Scikit-learn</span><span class="tag tag-g">AWS</span>
+            <span class="tag tag-a">Streamlit</span>
           </div>
         </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-bar-chart-fill"></i>
-              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="2" class="purecounter"></span>
-              <p><strong>Projets Data</strong><br>Netflix, Spotify, Tinder, Bank</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-diagram-3-fill"></i>
-              <span>End-to-End</span>
-              <p><strong>Pipeline Data</strong><br>EDA → ML → Streamlit → Hugging Face</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-briefcase-fill"></i>
-              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="2" class="purecounter"></span>
-              <p><strong>Ans d'Expérience</strong><br>Supply Chain, Data &amp; Marketing</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-cpu-fill"></i>
-              <span>+8 Outils</span>
-              <p><strong>Stack Data</strong><br>Pandas, Scikit-learn, AWS, Tableau</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section light-background">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Stack technique &amp; outils data maîtrisés</p>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row skills-content skills-animation">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>Python (Pandas, Numpy, Scikit-learn)</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"><span>SQL</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"><span>Microsoft Excel / Google Sheets</span> <i class="val">98%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>Power BI / Tableau / Metabase</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"><span>Machine Learning (régression, classification)</span> <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"><span>AWS / Streamlit / Hugging Face / Docker</span> <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Skills Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-      <p>Data analyste / scientiste en reconversion, spécialisée en Python, SQL, Power BI et Machine Learning. Avec plus de 6 ans d'expérience en supply chain, logistique et web-marketing. Capable de gérer l'ensemble du cycle de vie de la donnée, de l'EDA au déploiement via Streamlit et Hugging Face..</p>
-      </div>
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-           
-
-            <h3 class="resume-title">Formation</h3>
-
-            <div class="resume-item">
-              <h4>Certificat DATA Analysis Essentiels &amp; Fullstack &amp; Lead</h4>
-              <h5>2025 – 2026</h5>
-              <p><em>Jedha Bootcamp</em></p>
-              <p>Formation intensive couvrant l'ensemble du pipeline data : EDA, Machine Learning, déploiement Streamlit, Power BI, Hugging Face, AWS, GitHub...</p>
-            </div>
-
-            <div class="resume-item">
-              <h4>Maîtrise Création Numérique, Innovation en Communication</h4>
-              <h5>2016 – 2017</h5>
-              <p><em>Université Paris Nord</em></p>
-            </div>
-
-            <div class="resume-item">
-              <h4>Master 2 Développement WEB</h4>
-              <h5>2015 – 2016</h5>
-              <p><em>Centre Universitaire Européen de Management Paris</em></p>
-            </div>
-
-            <div class="resume-item">
-              <h4>Master 2 GEO – Spécialité « Marketing »</h4>
-              <h5>2013 – 2015</h5>
-              <p><em>Université Paris Nord</em></p>
-            </div>
-
-            <div class="resume-item">
-              <h4>Licence en Management</h4>
-              <h5>2008 – 2012</h5>
-              <p><em>EHEC – Ecole des Hautes Etudes Commerciales d'Alger</em></p>
-            </div>
-
-            <div class="resume-item">
-              <h4>1ère année MI Mathématique Informatique</h4>
-              <h5>2007 – 2008</h5>
-              <p><em>Université de Béjaïa</em></p>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Expérience Professionnelle</h3>
-
-            <div class="resume-item">
-              <h4>Supply Chain & Trade Analyst / Import-Export</h4>
-              <h5>2022 – 2026</h5>
-              <p><em>Groupe ETAM (59)</em></p>
-              <ul>
-                <li>Analyse des données et pilotage des flux dans une optique d'optimisation des coûts.</li>
-                <li>Contrôle de gestion, calcul et suivi financier des coûts, des droits de douane ....</li>
-                <li>Analyse et étude sur la réglementation douane et l'obtention de l'origine préférentielle.</li>
-                <li>Négociation des cotations auprès des transporteurs import/export.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Coordinatrice Achats & Approvisionnements.</h4>
-              <h5>2021 – 2022</h5>
-              <p><em>KIABI (59)</em></p>
-              <ul>
-                <li>Supervision des flux commandes via OMS/FR : contrôle et contribution à la fiabilité des données.</li>
-                <li>Analyse et détection d'anomalies, traitement des alertes.</li>
-                <li>Analyse des cadencements par segment (taille, zone, échance) afin de garantir la qualité de stock.</li>
-                <li>Vérification des plans d'appro en étroite collaboration avec le CDP &amp; CDGO.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Appui au Management</h4>
-              <h5>2020 – 2021</h5>
-              <p><em>EDF (59)</em></p>
-              <ul>
-                <li>Suivi financier des projets, et de données opérationnelles via les plateformes.</li>
-                <li>Traitement des factures/suivi des interventions.</li>
-                <li>Reporting et support à la décision. Gestion des fournisseurs.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Account Manager </h4>
-              <h5>2018 – 2019</h5>
-              <p><em>Carrier Transicold (76)</em></p>
-              <ul>
-                <li>Gestion de portefeuille clients B to B.</li>
-                <li>Suivi du CA.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Traffic Manager</h4>
-              <h5>2017 – 2018</h5>
-              <p><em>Studios Mercurya (92)</em></p>
-              <ul>
-                <li>Optimisation des leviers d'acquisition du trafic. Gestion de 15 sites e-commerce.</li>
-                <li>Mise en place des campagnes web-marketing (Affiliation, display…).</li>
-                <li>Gestion du système tracking, analyse quotidienne du trafic et du comportement des internautes. Benchmark, reporting, Gap analytics. Recrutement des affiliés.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Chargée d'Étude Marketing</h4>
-              <h5>2015 – 2015</h5>
-              <p><em>JFM Conseils (91)</em></p>
-              <ul>
-                <li>Réalisation d'une étude de marché, analyse d'une enquête de satisfaction clients en B to B.</li>
-                <li>Réalisation d'une analyse SWOT pour l'entreprise.</li>
-              </ul>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Resume Section -->
-
-    <!-- Portfolio Section -->
-    <section id="projets" class="portfolio section light-background">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Projets</h2>
-        <p>Projets data réalisés pendant la formation JEDHA Bootcamp — couvrant l'ensemble du pipeline data : EDA, Machine Learning, dashboards interactifs et déploiement applicatif.</p>
-      </div>
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">Tous</li>
-            <li data-filter=".filter-app">Apps</li>
-            <li data-filter=".filter-eda">EDA</li>
-            <li data-filter=".filter-ml">Machine Learning</li>
-            <li data-filter=".filter-dashboard">Dashboards</li>
-          </ul>
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app filter-ml">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="Projet Netflix">
-                <div class="portfolio-info">
-                  <h4>Projet Netflix</h4>
-                  <p>EDA + ML + Déploiement Streamlit</p>
-                  <a href="assets/img/portfolio/app-1.jpg" title="Projet Netflix" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Plus de détails" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app filter-ml">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="Projet Spotify">
-                <div class="portfolio-info">
-                  <h4>Projet Spotify</h4>
-                  <p>Analyse &amp; Modèle de recommandation</p>
-                  <a href="assets/img/portfolio/app-2.jpg" title="Projet Spotify" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Plus de détails" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app filter-eda">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="Projet Tinder">
-                <div class="portfolio-info">
-                  <h4>Projet Tinder</h4>
-                  <p>EDA + Analyse comportementale</p>
-                  <a href="assets/img/portfolio/app-3.jpg" title="Projet Tinder" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Plus de détails" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml filter-dashboard">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="Projet Bank">
-                <div class="portfolio-info">
-                  <h4>Projet Secteur Bancaire</h4>
-                  <p>Scoring crédit + Dashboard Power BI</p>
-                  <a href="assets/img/portfolio/product-1.jpg" title="Projet Bank" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Plus de détails" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-dashboard">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="Dashboard Supply Chain">
-                <div class="portfolio-info">
-                  <h4>Dashboard Supply Chain</h4>
-                  <p>Tableau / Power BI – KPI logistiques</p>
-                  <a href="assets/img/portfolio/product-2.jpg" title="Dashboard Supply Chain" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Plus de détails" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-eda">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="Analyse EDA">
-                <div class="portfolio-info">
-                  <h4>Analyse EDA Avancée</h4>
-                  <p>Python – Pandas, Seaborn, Matplotlib</p>
-                  <a href="assets/img/portfolio/product-3.jpg" title="Analyse EDA" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="Plus de détails" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Services Section -->
-    <section id="compétences" class="services section">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Compétences</h2>
-        <p>Mes compétences en analyse de données, de l'exploration à la mise en production des insights.</p>
-      </div>
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-search"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Exploration &amp; Nettoyage de données</a></h4>
-              <p class="description">Analyse exploratoire (EDA), nettoyage et préparation des jeux de données avec Python (Pandas, Numpy).</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Data Visualisation &amp; Dashboards</a></h4>
-              <p class="description">Création de dashboards interactifs et de reportings avec Power BI, Tableau, Metabase, Matplotlib et Seaborn.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-cpu"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Machine Learning</a></h4>
-              <p class="description">Développement et entraînement de modèles de régression et classification avec Scikit-learn. Export et déploiement via Joblib.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-cloud-upload"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Déploiement d'applications Data</a></h4>
-              <p class="description">Création et déploiement d'applications interactives avec Streamlit et Hugging Face. Hébergement sur AWS (S3).</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-database"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Data Engineering &amp; ETL</a></h4>
-              <p class="description">Construction de pipelines de données (ETL), gestion de bases de données SQL/NoSQL, intégration d'API et workflow Airflow.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-graph-up-arrow"></i></div>
-            <div>
-              <h4 class="title"><a href="service-details.html" class="stretched-link">Optimisation Supply Chain &amp; Reporting</a></h4>
-              <p class="description">Analyse des flux logistiques, optimisation des coûts, suivi des KPI et reporting opérationnel grâce à 6 ans d'expérience terrain.</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>N'hésitez pas à me contacter pour toute opportunité professionnelle, collaboration ou question.</p>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Localisation</h3>
-                  <p>Lille, France</p>
-                </div>
-              </div>
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email</h3>
-                  <p>zakou-06@hotmail.fr</p>
-                </div>
-              </div>
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-globe flex-shrink-0"></i>
-                <div>
-                  <h3>Site Web</h3>
-                  <p>zakiayahiacherifg8-max.github.io</p>
-                </div>
-              </div>
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                <i class="bi bi-translate flex-shrink-0"></i>
-                <div>
-                  <h3>Langues</h3>
-                  <p>Français (Courant) · Anglais (Professionnel) · Arabe (Courant) · Kabyle (Maternelle)</p>
-                </div>
-              </div>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83261.74097395655!2d3.0065!3d50.6292!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d57d849b3d21%3A0x4a2b3a85f2c3f7a0!2sLille%2C%20France!5e0!3m2!1sfr!2sfr!4v1680000000000" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Votre Nom</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Votre Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Sujet</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Chargement…</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Votre message a bien été envoyé. Merci !</div>
-                  <button type="submit">Envoyer le message</button>
-                </div>
-
-              </div>
-            </form>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="container">
-      <div class="copyright text-center">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Zakia YAHIA CHERIF</strong> <span>Tous droits réservés</span></p>
-      </div>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal">
+          <div class="about-img">👤<!-- <img src="assets/img/my-profile-img.jpg" alt="Zakia"/> --></div>
+          <div class="about-badge">Disponible</div>
+        </div>
+        <div class="reveal">
+          <div class="section-label">// 01. À propos</div>
+          <h2 class="section-title">Qui suis-je ?</h2>
+          <p class="about-p">Je suis Data Analyste junior passionnée par l'analyse de données. Je dispose d'un solide background en supply chain, analyse et web-marketing. Je combine vision business et compétences techniques pour transformer la donnée en levier de performance.</p>
+          <p class="about-p">J'ai réalisé plusieurs projets data (Netflix, Spotify, Tinder, Secteur bancaire…) couvrant l'ensemble du cycle de vie de la donnée : exploration (EDA), modélisation en machine learning, création de dashboards interactifs et déploiement d'applications via Streamlit et Hugging Face.</p>
+          <div class="about-infos">
+            <div class="ainfo"><strong>GitHub : </strong><span>zakiayahiacherifg8-max</span></div>
+            <div class="ainfo"><strong>Diplôme : </strong><span>Master</span></div>
+            <div class="ainfo"><strong>Ville : </strong><span>Lille, France</span></div>
+            <div class="ainfo"><strong>Email : </strong><span>zakou-06@hotmail.fr</span></div>
+            <div class="ainfo"><strong>Langues : </strong><span>FR · EN · AR · Kabyle</span></div>
+            <div class="ainfo"><strong>Statut : </strong><span style="color:var(--accent2)">Disponible</span></div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="#contact">Me contacter</a>
+            <a class="btn btn-ghost" href="#resume">Mon parcours</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div id="stats">
+    <div class="stats-grid">
+      <div class="stat-card reveal"><div class="stat-icon"><i class="bi bi-bar-chart-fill"></i></div><span class="stat-num" data-target="5">0</span><div class="stat-label"><strong>Projets Data</strong><span>Netflix, Spotify, Tinder, Bank…</span></div></div>
+      <div class="stat-card reveal"><div class="stat-icon"><i class="bi bi-diagram-3-fill"></i></div><span class="stat-num">End-to-End</span><div class="stat-label"><strong>Pipeline Data</strong><span>EDA → ML → Streamlit → HuggingFace</span></div></div>
+      <div class="stat-card reveal"><div class="stat-icon"><i class="bi bi-briefcase-fill"></i></div><span class="stat-num" data-target="6">0</span><div class="stat-label"><strong>Ans d'expérience</strong><span>Supply Chain, Data & Marketing</span></div></div>
+      <div class="stat-card reveal"><div class="stat-icon"><i class="bi bi-cpu-fill"></i></div><span class="stat-num">+8</span><div class="stat-label"><strong>Outils maîtrisés</strong><span>Pandas, Scikit-learn, AWS, Tableau</span></div></div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-label reveal">// 02. Compétences</div>
+      <h2 class="section-title reveal">Stack Technique</h2>
+      <p class="section-sub reveal">Outils et technologies maîtrisés tout au long du pipeline data.</p>
+      <div class="skills-grid" id="skills-grid">
+        <div class="reveal">
+          <div class="skill-row">
+            <div class="skill-header">
+              <span class="skill-name-txt"><i class="bi bi-filetype-py" style="color:var(--accent2);margin-right:8px"></i>Python (Pandas, Numpy, Scikit-learn)</span>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-track"><div class="skill-bar" data-width="75"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-header">
+              <span class="skill-name-txt"><i class="bi bi-database" style="color:var(--accent2);margin-right:8px"></i>SQL</span>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-track"><div class="skill-bar" data-width="80"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-header">
+              <span class="skill-name-txt"><i class="bi bi-file-earmark-spreadsheet" style="color:var(--warm);margin-right:8px"></i>Microsoft Excel / Google Sheets</span>
+              <span class="skill-pct">98%</span>
+            </div>
+            <div class="skill-track"><div class="skill-bar warm" data-width="98"></div></div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="skill-row">
+            <div class="skill-header">
+              <span class="skill-name-txt"><i class="bi bi-bar-chart-line" style="color:var(--accent2);margin-right:8px"></i>Power BI / Tableau / Metabase</span>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-track"><div class="skill-bar" data-width="90"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-header">
+              <span class="skill-name-txt"><i class="bi bi-cpu" style="color:var(--warm);margin-right:8px"></i>Machine Learning (régression, classification)</span>
+              <span class="skill-pct">60%</span>
+            </div>
+            <div class="skill-track"><div class="skill-bar warm" data-width="60"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-header">
+              <span class="skill-name-txt"><i class="bi bi-cloud" style="color:var(--gold);margin-right:8px"></i>AWS / Streamlit / Hugging Face / Docker</span>
+              <span class="skill-pct">60%</span>
+            </div>
+            <div class="skill-track"><div class="skill-bar gold" data-width="60"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="section-inner">
+      <div class="section-label reveal">// 03. Parcours</div>
+      <h2 class="section-title reveal">Formation & Expérience</h2>
+      <p class="section-sub reveal">Data analyste en reconversion, spécialisée en Python, SQL, Power BI et Machine Learning. Plus de 6 ans d'expérience en supply chain, logistique et web-marketing.</p>
+      <div class="resume-cols">
+        <div class="reveal">
+          <div class="resume-col-title"><i class="bi bi-mortarboard"></i>&nbsp; Formation</div>
+          <div class="tl">
+            <div class="tl-item"><div class="tl-date">2025 – 2026</div><div class="tl-title">Certificat DATA Analysis Essentiels & Fullstack & Lead</div><div class="tl-place">Jedha Bootcamp</div><div class="tl-desc">Formation intensive : EDA, Machine Learning, Streamlit, Hugging Face, AWS, GitHub.</div></div>
+            <div class="tl-item"><div class="tl-date">2017 – 2018</div><div class="tl-title">Maîtrise Création Numérique, Innovation en Communication</div><div class="tl-place">Université Paris Nord</div></div>
+            <div class="tl-item"><div class="tl-date">2015 – 2016</div><div class="tl-title">Master 2 Développement WEB</div><div class="tl-place">Centre Universitaire Européen de Management Paris</div></div>
+            <div class="tl-item"><div class="tl-date">2013 – 2015</div><div class="tl-title">Master 2 GEO – Spécialité Marketing</div><div class="tl-place">Université Paris Nord</div></div>
+            <div class="tl-item"><div class="tl-date">2008 – 2012</div><div class="tl-title">Licence en Management</div><div class="tl-place">EHEC – Alger</div></div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="resume-col-title"><i class="bi bi-briefcase"></i>&nbsp; Expérience</div>
+          <div class="tl">
+            <div class="tl-item"><div class="tl-date">2022 – 2026</div><div class="tl-title">Gestionnaire des flux import-export</div><div class="tl-place">Groupe ETAM (59)</div><div class="tl-desc"><ul><li>Analyse des données et pilotage des flux logistiques pour optimiser les coûts</li><li>Calcul des coûts de transport, droits de douane, réglementation douanière</li><li>Négociation des cotations auprès des transporteurs import/export</li></ul></div></div>
+            <div class="tl-item"><div class="tl-date">2021 – 2022</div><div class="tl-title">Gestionnaire Approvisionnement</div><div class="tl-place">KIABI (59)</div><div class="tl-desc"><ul><li>Saisie & contrôle ≃ 300 commandes/semaine sur OMS/FR</li><li>Détection d'anomalies, suivi cadencements et qualité de stock</li></ul></div></div>
+            <div class="tl-item"><div class="tl-date">2020 – 2021</div><div class="tl-title">Appui au Management</div><div class="tl-place">EDF (59)</div><div class="tl-desc"><ul><li>Suivi de données opérationnelles, reporting et support à la décision</li></ul></div></div>
+            <div class="tl-item"><div class="tl-date">2018 – 2019</div><div class="tl-title">Assistante ADV</div><div class="tl-place">Carrier Transicold (76)</div><div class="tl-desc"><ul><li>Enregistrement des commandes, facturation, suivi ordres d'achats</li></ul></div></div>
+            <div class="tl-item"><div class="tl-date">2017 – 2018</div><div class="tl-title">Traffic Manager</div><div class="tl-place">Studios Mercurya (92)</div><div class="tl-desc"><ul><li>Gestion de 15 sites e-commerce, campagnes web-marketing</li><li>Analyse du trafic, reporting, benchmark, Gap analytics</li></ul></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="section-inner">
+      <div class="section-label reveal">// 04. Portfolio</div>
+      <h2 class="section-title reveal">Mes Projets</h2>
+      <p class="section-sub reveal">Projets data réalisés pendant la formation JEDHA Bootcamp — EDA, Machine Learning, dashboards interactifs et déploiement applicatif.</p>
+      <div class="pf-filters reveal">
+        <button class="pf-filter active" data-filter="*">Tous</button>
+        <button class="pf-filter" data-filter=".filter-app">Apps</button>
+        <button class="pf-filter" data-filter=".filter-eda">EDA</button>
+        <button class="pf-filter" data-filter=".filter-ml">Machine Learning</button>
+        <button class="pf-filter" data-filter=".filter-dashboard">Dashboards</button>
+      </div>
+      <div class="pf-grid" id="pf-isotope">
+        <div class="pf-item filter-app filter-ml"><div class="pf-card"><div class="pf-thumb">🎬</div><div class="pf-body"><div class="pf-meta"><span class="pf-tag">Python</span><span class="pf-tag w">Scikit-learn</span><span class="pf-tag g">Streamlit</span></div><div class="pf-name">Projet Netflix</div><div class="pf-desc">EDA complète + modèle ML de recommandation de contenus + déploiement Streamlit.</div><div class="pf-links"><a class="pf-link" href="#"><i class="bi bi-box-arrow-up-right"></i> Voir</a><a class="pf-link" href="https://github.com/zakiayahiacherifg8-max" target="_blank"><i class="bi bi-github"></i> GitHub</a></div></div></div></div>
+        <div class="pf-item filter-app filter-ml"><div class="pf-card"><div class="pf-thumb">🎵</div><div class="pf-body"><div class="pf-meta"><span class="pf-tag">Python</span><span class="pf-tag w">Pandas</span><span class="pf-tag">Reco.</span></div><div class="pf-name">Projet Spotify</div><div class="pf-desc">Analyse des données musicales & modèle de recommandation basé sur les features audio.</div><div class="pf-links"><a class="pf-link" href="#"><i class="bi bi-box-arrow-up-right"></i> Voir</a><a class="pf-link" href="https://github.com/zakiayahiacherifg8-max" target="_blank"><i class="bi bi-github"></i> GitHub</a></div></div></div></div>
+        <div class="pf-item filter-app filter-eda"><div class="pf-card"><div class="pf-thumb">💘</div><div class="pf-body"><div class="pf-meta"><span class="pf-tag">Python</span><span class="pf-tag w">Seaborn</span><span class="pf-tag">EDA</span></div><div class="pf-name">Projet Tinder</div><div class="pf-desc">Analyse exploratoire et étude comportementale des utilisateurs avec visualisations avancées.</div><div class="pf-links"><a class="pf-link" href="#"><i class="bi bi-box-arrow-up-right"></i> Voir</a><a class="pf-link" href="https://github.com/zakiayahiacherifg8-max" target="_blank"><i class="bi bi-github"></i> GitHub</a></div></div></div></div>
+        <div class="pf-item filter-ml filter-dashboard"><div class="pf-card"><div class="pf-thumb">🏦</div><div class="pf-body"><div class="pf-meta"><span class="pf-tag w">Power BI</span><span class="pf-tag">ML</span><span class="pf-tag">SQL</span></div><div class="pf-name">Projet Secteur Bancaire</div><div class="pf-desc">Modèle de scoring crédit + dashboard Power BI de suivi des KPIs financiers.</div><div class="pf-links"><a class="pf-link" href="#"><i class="bi bi-box-arrow-up-right"></i> Voir</a><a class="pf-link" href="https://github.com/zakiayahiacherifg8-max" target="_blank"><i class="bi bi-github"></i> GitHub</a></div></div></div></div>
+        <div class="pf-item filter-dashboard"><div class="pf-card"><div class="pf-thumb">📦</div><div class="pf-body"><div class="pf-meta"><span class="pf-tag w">Tableau</span><span class="pf-tag w">Power BI</span><span class="pf-tag">KPIs</span></div><div class="pf-name">Dashboard Supply Chain</div><div class="pf-desc">Tableau de bord interactif pour le suivi des KPIs logistiques — délais, coûts, flux import/export.</div><div class="pf-links"><a class="pf-link" href="#"><i class="bi bi-box-arrow-up-right"></i> Voir</a><a class="pf-link" href="https://github.com/zakiayahiacherifg8-max" target="_blank"><i class="bi bi-github"></i> GitHub</a></div></div></div></div>
+        <div class="pf-item filter-eda"><div class="pf-card"><div class="pf-thumb">📊</div><div class="pf-body"><div class="pf-meta"><span class="pf-tag">Python</span><span class="pf-tag w">Matplotlib</span><span class="pf-tag">EDA</span></div><div class="pf-name">Analyse EDA Avancée</div><div class="pf-desc">Exploration complète de jeux de données complexes avec Pandas, Seaborn et Matplotlib.</div><div class="pf-links"><a class="pf-link" href="#"><i class="bi bi-box-arrow-up-right"></i> Voir</a><a class="pf-link" href="https://github.com/zakiayahiacherifg8-max" target="_blank"><i class="bi bi-github"></i> GitHub</a></div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="section-label reveal">// 05. Services</div>
+      <h2 class="section-title reveal">Mes Prestations</h2>
+      <p class="section-sub reveal">De l'exploration des données à leur mise en production — je couvre l'ensemble du cycle data.</p>
+      <div class="srv-grid">
+        <div class="srv-card reveal"><div class="srv-icon"><i class="bi bi-search"></i></div><div><div class="srv-title">Exploration & Nettoyage</div><div class="srv-desc">Analyse exploratoire (EDA), nettoyage et préparation des jeux de données avec Python (Pandas, Numpy).</div></div></div>
+        <div class="srv-card reveal"><div class="srv-icon"><i class="bi bi-bar-chart"></i></div><div><div class="srv-title">Data Visualisation & Dashboards</div><div class="srv-desc">Dashboards interactifs avec Power BI, Tableau, Metabase, Matplotlib et Seaborn.</div></div></div>
+        <div class="srv-card reveal"><div class="srv-icon"><i class="bi bi-cpu"></i></div><div><div class="srv-title">Machine Learning</div><div class="srv-desc">Modèles de régression et classification avec Scikit-learn. Export via Joblib.</div></div></div>
+        <div class="srv-card reveal"><div class="srv-icon"><i class="bi bi-cloud-upload"></i></div><div><div class="srv-title">Déploiement d'applications Data</div><div class="srv-desc">Applications interactives Streamlit et Hugging Face. Hébergement AWS (S3).</div></div></div>
+        <div class="srv-card reveal"><div class="srv-icon"><i class="bi bi-database"></i></div><div><div class="srv-title">Data Engineering & ETL</div><div class="srv-desc">Pipelines ETL, bases SQL/NoSQL, intégration d'API et workflows Airflow.</div></div></div>
+        <div class="srv-card reveal"><div class="srv-icon"><i class="bi bi-graph-up-arrow"></i></div><div><div class="srv-title">Supply Chain & Reporting</div><div class="srv-desc">Analyse des flux logistiques, optimisation des coûts et reporting — 6 ans terrain.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-label reveal">// 06. Contact</div>
+      <h2 class="section-title reveal">Travaillons Ensemble</h2>
+      <p class="section-sub reveal">N'hésitez pas à me contacter pour toute opportunité professionnelle, collaboration ou question.</p>
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="cinfo-item"><div class="cinfo-icon"><i class="bi bi-geo-alt"></i></div><div><div class="cinfo-label">LOCALISATION</div><div class="cinfo-val">Lille, France</div></div></div>
+          <div class="cinfo-item"><div class="cinfo-icon"><i class="bi bi-envelope"></i></div><div><div class="cinfo-label">EMAIL</div><div class="cinfo-val"><a href="mailto:zakou-06@hotmail.fr">zakou-06@hotmail.fr</a></div></div></div>
+          <div class="cinfo-item"><div class="cinfo-icon"><i class="bi bi-linkedin"></i></div><div><div class="cinfo-label">LINKEDIN</div><div class="cinfo-val"><a href="https://www.linkedin.com/in/zakia-yahia-cherif" target="_blank">zakia-yahia-cherif</a></div></div></div>
+          <div class="cinfo-item"><div class="cinfo-icon"><i class="bi bi-github"></i></div><div><div class="cinfo-label">GITHUB</div><div class="cinfo-val"><a href="https://github.com/zakiayahiacherifg8-max" target="_blank">zakiayahiacherifg8-max</a></div></div></div>
+          <div class="cinfo-item"><div class="cinfo-icon"><i class="bi bi-translate"></i></div><div><div class="cinfo-label">LANGUES</div><div class="cinfo-val">Français · Anglais · Arabe · Kabyle</div></div></div>
+        </div>
+        <div class="reveal">
+          <div class="form-row">
+            <div class="form-group"><label>VOTRE NOM</label><input type="text" class="form-control" placeholder="Jane Dupont"/></div>
+            <div class="form-group"><label>VOTRE EMAIL</label><input type="email" class="form-control" placeholder="jane@exemple.com"/></div>
+          </div>
+          <div class="form-group"><label>SUJET</label><input type="text" class="form-control" placeholder="Opportunité professionnelle"/></div>
+          <div class="form-group"><label>MESSAGE</label><textarea class="form-control" rows="6" placeholder="Bonjour Zakia, …"></textarea></div>
+          <a href="mailto:zakou-06@hotmail.fr" class="btn btn-primary" style="display:flex;justify-content:center;width:100%;margin-top:6px"><i class="bi bi-send"></i>&nbsp; Envoyer via Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 <strong>Zakia YAHIA CHERIF</strong> · Data Analyst Junior · Lille, France</p>
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+</div>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+<a href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script>
+  /* LOADER */
+  window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('loader').classList.add('hidden'), 2000);
+  });
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  /* HAMBURGER */
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.toggle('open');
+  });
 
+  /* TYPED.JS */
+  new Typed('#typed-el', {
+    strings: ['Data Analyst', 'Data Scientist', 'Data Engineer'],
+    typeSpeed: 60, backSpeed: 40, loop: true, backDelay: 1800
+  });
+
+  /* SCROLL REVEAL */
+  const revObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        revObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+  /* SKILL BARS */
+  const skillObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-bar').forEach(bar => { bar.style.width = bar.dataset.width + '%'; });
+        skillObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('#skills-grid').forEach(el => skillObs.observe(el));
+
+  /* COUNTERS */
+  const cntObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('[data-target]').forEach(el => {
+          const target = +el.dataset.target; let count = 0; const step = target / 60;
+          const iv = setInterval(() => { count = Math.min(count + step, target); el.textContent = Math.floor(count); if (count >= target) clearInterval(iv); }, 28);
+        });
+        cntObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('#stats').forEach(el => cntObs.observe(el));
+
+  /* ISOTOPE */
+  window.addEventListener('load', () => {
+    const iso = new Isotope(document.getElementById('pf-isotope'), { itemSelector: '.pf-item', layoutMode: 'fitRows' });
+    document.querySelectorAll('.pf-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pf-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        iso.arrange({ filter: btn.dataset.filter });
+      });
+    });
+  });
+
+  /* ACTIVE NAV + SCROLL TOP */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav ul li a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 180) current = s.id; });
+    navLinks.forEach(a => { a.classList.remove('active'); if (a.getAttribute('href') === '#' + current) a.classList.add('active'); });
+    document.getElementById('scroll-top').classList.toggle('show', window.scrollY > 400);
+  });
+</script>
 </body>
-
 </html>
